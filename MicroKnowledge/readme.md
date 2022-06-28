@@ -1,4 +1,4 @@
-MicroKnowledge is a opinion share system. It enables researchers to manage their mocro-knowledge. The detail document is offered in directory `Doc-gen`.
+MicroKnowledge is an opinion share system. It enables researchers to manage their mocro-knowledge. The detail document is offered in directory `Doc-gen`.
 
 The manual version in directory `microknowledge-service` is implemented by Azhar Ali from Pakistan. He has been working as a senior software engineer for the last 3+ years. You can get more information about him through [resume](https://www.upwork.com/ab/c/1003740373/contracts/30478016#milestones%2F20220511%2F20220609).
 

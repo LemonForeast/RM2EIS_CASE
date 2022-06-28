@@ -16,7 +16,7 @@ This subsection should
 
 ### 1.3.1  Product perspective
 This subsection of the SRS should put the product into perspective with other related products. If the product is independent and totally self-contained, it should be so stated here. If the SRS defines a product that is a component of a larger system, as frequently occurs, then this subsection should relate the requirements of that larger system to functionality of the software and should identify interfaces between that system and the software.
- 
+
 This subsection should also describe how the software operates inside various constraints. For example,
 these constraints could include
 - a) System interfaces;
@@ -59,7 +59,7 @@ these constraints could include
 		<td>CurrentDilivery is a object of <a href="#CLASSDilivery">Dilivery</a></td>
 					</tr>
 	</table>
-	 
+
 <b>SI2 - ThirdPartyServices</b>
 <table>
 	<tr>
@@ -79,7 +79,7 @@ these constraints could include
 	<td><ul></ul></td>
 	</tr>
 	</table>
-	 
+
 <b>SI3 - ProcessOrderService</b>
 <table>
 	<tr>
@@ -115,7 +115,7 @@ these constraints could include
 		<td>CurrentPaymentMethod has several options: [CASH|CARD]</td>
 					</tr>
 	</table>
-	 
+
 <b>SI4 - ManageItemCRUDService</b>
 <table>
 	<tr>
@@ -135,7 +135,7 @@ these constraints could include
 	<td><ul><li><a href="#OPcreateItem">createItem</a></li><li><a href="#OPqueryItem">queryItem</a></li><li><a href="#OPmodifyItem">modifyItem</a></li><li><a href="#OPdeleteItem">deleteItem</a></li></ul></td>
 	</tr>
 	</table>
-	 
+
 <b>SI5 - ManageStoreCRUDService</b>
 <table>
 	<tr>
@@ -155,8 +155,8 @@ these constraints could include
 	<td><ul><li><a href="#OPcreateStore">createStore</a></li><li><a href="#OPqueryStore">queryStore</a></li><li><a href="#OPmodifyStore">modifyStore</a></li><li><a href="#OPdeleteStore">deleteStore</a></li></ul></td>
 	</tr>
 	</table>
-	 
 <b>SI6 - ManageDiliveryCRUDService</b>
+
 <table>
 	<tr>
 		<td><b>Service Name:</b></td>
@@ -175,13 +175,13 @@ these constraints could include
 	<td><ul><li><a href="#OPcreateDilivery">createDilivery</a></li></ul></td>
 	</tr>
 	</table>
-	 
- 
+​	 
+
 ### 1.3.2  Product functions
-<b>Use Case Diagram</b>
- 
-![Use Case Diagram](Images/Use_Case_Diagram.svg)
- 
+<b>Use Case Diagram</b>![toUseCaseDiagram](RequirementDocument.assets/toUseCaseDiagram.jpg)
+
+
+
 <table>
 	<tr>
 		<td><b>ID</b></td>
@@ -350,9 +350,9 @@ This information may be provided by reference to an appendix or to another docum
 ## 3.1  Functions
 ### 3.1.1   Use Case
 <b>UC1 - search</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -389,9 +389,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC2 - checkOrder</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -428,9 +428,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC3 - publicOrderInfo</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -467,9 +467,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC4 - acceptOrder</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -506,9 +506,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC5 - ercommendOrder</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -545,9 +545,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC6 - excursionPublicOrder</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -584,9 +584,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC7 - manageStore</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -623,9 +623,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC8 - manageDilivery</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -662,9 +662,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC9 - manageCustomer</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -702,11 +702,11 @@ This information may be provided by reference to an appendix or to another docum
 
 <b>UC10 - processOrder</b>
 <p>System Sequence Diagram:</p>
- 
+
 ![ProcessOrderSSD](Images/ProcessOrderSSD.svg)
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -743,9 +743,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC11 - manageItem</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -782,9 +782,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC12 - enterStore</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -821,9 +821,9 @@ This information may be provided by reference to an appendix or to another docum
 	</table>
 
 <b>UC13 - terminateOrder</b>
- 
+
 <p>Use Case Description:</p>
- 
+
 <table>
 	<tr>
 		<td><b>UseCase Name:</b></td>
@@ -859,7 +859,7 @@ This information may be provided by reference to an appendix or to another docum
 	</tr>
 	</table>
 
- 
+
 ### 3.1.2   System Operation
 <b>OP1 - createDilivery</b>
 <table>
@@ -897,12 +897,13 @@ This information may be provided by reference to an appendix or to another docum
 </tr>
 	<tr>
 		<td><b>Postconditions:</b></td>
-	<td><p>1. <i>temp</i> represented the object of class <a href="#CLASSDilivery">Dilivery</a></p><p>2. The object <i>temp</i> was created</p><p>3. The attribute <i>Id</i> of the object <i>temp</i> became <i>id</i></p><p>4. The attribute <i>Name</i> of the object <i>temp</i> became <i>name</i></p><p>5. The object <i>temp</i> was put into the instance set of class <a href="#CLASSDilivery">Dilivery</a></p><p>6. ERROR12</p><p>7. The return value was <b>true</b></p></td>
+	<td><p>1. <i>temp</i> represented the object of class <a href="#CLASSDilivery">Dilivery</a></p><p>2. The object <i>temp</i> was created</p><p>3. The attribute <i>Id</i> of the object <i>temp</i> became <i>id</i></p><p>4. The attribute <i>Name</i> of the object <i>temp</i> became <i>name</i></p><p>5. The object <i>temp</i> was put into the instance set of class <a href="#CLASSDilivery">Dilivery</a></p><p>6. ERROR12</p><p>6. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
+
 <p>Contract of <b>createDilivery</b>:</p>
- 
+
 ```java
 Contract  ManageDiliveryCRUDService::createDilivery(id : String, name : String) : Boolean {
 		definition:
@@ -959,9 +960,9 @@ Contract  ManageDiliveryCRUDService::createDilivery(id : String, name : String) 
 	<td><p>1. The attribute <i>IsAccept</i> of the object <i>order</i> became <b>true</b></p><p>2. The object <i>order</i> was linked to the object <i>CurrentDilivery</i> by <i>SaletoDilivery</i></p><p>3. The object <i>CurrentDilivery</i> was linked to the object <i>order</i> by <i>DiliverytoSale</i></p><p>4. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>acceptOrder</b>:</p>
- 
+
 ```java
 Contract TakeoutSystem::acceptOrder(name : String) : Boolean {
 		definition:
@@ -1016,9 +1017,9 @@ Contract TakeoutSystem::acceptOrder(name : String) : Boolean {
 	<td><p>1. The attribute <i>IsComplete</i> of the object <i>order</i> became <b>true</b></p><p>2. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>terminateOrder</b>:</p>
- 
+
 ```java
 Contract TakeoutSystem::terminateOrder(name : String) : Boolean {
 		definition:
@@ -1072,9 +1073,9 @@ Contract TakeoutSystem::terminateOrder(name : String) : Boolean {
 	<td><p>The return value was the instance set of class <a href="#CLASSSale">Sale</a></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>excursionPublicOrder</b>:</p>
- 
+
 ```java
 Contract TakeoutSystem::excursionPublicOrder(id : String) : Set(Sale) {
 		/*
@@ -1143,9 +1144,9 @@ Contract TakeoutSystem::excursionPublicOrder(id : String) : Set(Sale) {
 	<td><p>1. The object <a href="#TakeoutSystemCurrentStore">CurrentStore</a> became <i>store</i></p><p>2. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>enterStore</b>:</p>
- 
+
 ```java
 Contract TakeoutSystem::enterStore(id : Integer) : Boolean {
 		/*
@@ -1215,9 +1216,9 @@ Contract TakeoutSystem::enterStore(id : Integer) : Boolean {
 	<td><p>1. <i>ite</i> represented the object of class <a href="#CLASSItem">Item</a></p><p>2. The object <i>ite</i> was created</p><p>3. The attribute <i>Id</i> of the object <i>ite</i> became <i>id</i></p><p>4. The attribute <i>Name</i> of the object <i>ite</i> became <i>name</i></p><p>5. The attribute <i>Price</i> of the object <i>ite</i> became <i>price</i></p><p>6. The attribute <i>StockNumber</i> of the object <i>ite</i> became <i>stocknumber</i></p><p>7. The attribute <i>OrderPrice</i> of the object <i>ite</i> became <i>orderprice</i></p><p>8. The object <i>ite</i> was linked to the object <i>CurrentStore</i> by <i>ItemtoStore</i></p><p>9. The object <i>ite</i> was put into the instance set of class <a href="#CLASSItem">Item</a></p><p>10. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>createItem</b>:</p>
- 
+
 ```java
 Contract  ManageItemCRUDService::createItem(id : Integer, name : String, price : Real, stocknumber : Integer, orderprice : Real) : Boolean {
 		/*
@@ -1299,9 +1300,9 @@ Contract  ManageItemCRUDService::createItem(id : Integer, name : String, price :
 	<td><p>The return value was <i>item</i></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>queryItem</b>:</p>
- 
+
 ```java
 Contract  ManageItemCRUDService::queryItem(id : Integer) : Item {
 		/*
@@ -1365,9 +1366,9 @@ Contract  ManageItemCRUDService::queryItem(id : Integer) : Item {
 	<td><p>1. The attribute <i>Id</i> of the object <i>item</i> became <i>id</i></p><p>2. The attribute <i>Name</i> of the object <i>item</i> became <i>name</i></p><p>3. The attribute <i>Price</i> of the object <i>item</i> became <i>price</i></p><p>4. The attribute <i>StockNumber</i> of the object <i>item</i> became <i>stocknumber</i></p><p>5. The attribute <i>OrderPrice</i> of the object <i>item</i> became <i>orderprice</i></p><p>6. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>modifyItem</b>:</p>
- 
+
 ```java
 Contract  ManageItemCRUDService::modifyItem(id : Integer, name : String, price : Real, stocknumber : Integer, orderprice : Real) : Boolean {
 		/*
@@ -1441,9 +1442,9 @@ Contract  ManageItemCRUDService::modifyItem(id : Integer, name : String, price :
 	<td><p>1. The object <i>item</i> was deleted from the instance set of class <a href="#CLASSItem">Item</a></p><p>2. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>deleteItem</b>:</p>
- 
+
 ```java
 Contract  ManageItemCRUDService::deleteItem(id : Integer) : Boolean {
 		/*
@@ -1511,9 +1512,9 @@ Contract  ManageItemCRUDService::deleteItem(id : Integer) : Boolean {
 	<td><p>The return value was <i>item</i></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>search</b>:</p>
- 
+
 ```java
 Contract TakeoutSystem::search(itemname : String) : Item {
 		/*
@@ -1577,9 +1578,9 @@ Contract TakeoutSystem::search(itemname : String) : Item {
 	<td><p>1. <i>sto</i> represented the object of class <a href="#CLASSStore">Store</a></p><p>2. The object <i>sto</i> was created</p><p>3. The attribute <i>Id</i> of the object <i>sto</i> became <i>id</i></p><p>4. The attribute <i>Name</i> of the object <i>sto</i> became <i>name</i></p><p>5. The attribute <i>Address</i> of the object <i>sto</i> became <i>address</i></p><p>6. The attribute <i>IsOpened</i> of the object <i>sto</i> became <i>isopened</i></p><p>7. The object <i>sto</i> was put into the instance set of class <a href="#CLASSStore">Store</a></p><p>8. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>createStore</b>:</p>
- 
+
 ```java
 Contract  ManageStoreCRUDService::createStore(id : Integer, name : String, address : String, isopened : Boolean) : Boolean {
 		/*
@@ -1657,9 +1658,9 @@ Contract  ManageStoreCRUDService::createStore(id : Integer, name : String, addre
 	<td><p>The return value was <i>store</i></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>queryStore</b>:</p>
- 
+
 ```java
 Contract  ManageStoreCRUDService::queryStore(id : Integer) : Store {
 		/*
@@ -1723,9 +1724,9 @@ Contract  ManageStoreCRUDService::queryStore(id : Integer) : Store {
 	<td><p>1. The attribute <i>Id</i> of the object <i>store</i> became <i>id</i></p><p>2. The attribute <i>Name</i> of the object <i>store</i> became <i>name</i></p><p>3. The attribute <i>Address</i> of the object <i>store</i> became <i>address</i></p><p>4. The attribute <i>IsOpened</i> of the object <i>store</i> became <i>isopened</i></p><p>5. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>modifyStore</b>:</p>
- 
+
 ```java
 Contract  ManageStoreCRUDService::modifyStore(id : Integer, name : String, address : String, isopened : Boolean) : Boolean {
 		/*
@@ -1797,9 +1798,9 @@ Contract  ManageStoreCRUDService::modifyStore(id : Integer, name : String, addre
 	<td><p>1. The object <i>store</i> was deleted from the instance set of class <a href="#CLASSStore">Store</a></p><p>2. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>deleteStore</b>:</p>
- 
+
 ```java
 Contract  ManageStoreCRUDService::deleteStore(id : Integer) : Boolean {
 		/*
@@ -1863,9 +1864,9 @@ Contract  ManageStoreCRUDService::deleteStore(id : Integer) : Boolean {
 	<td><p>1. <i>s</i> represented the object of class <a href="#CLASSSale">Sale</a></p><p>2. The object <i>s</i> was created</p><p>3. The object <i>s</i> was linked to the object <i>CurrentStore</i> by <i>SaletoStore</i></p><p>4. The object <i>CurrentStore</i> was linked to the object <i>s</i> by <i>StoretoSale</i></p><p>5. The attribute <i>IsComplete</i> of the object <i>s</i> became <b>false</b></p><p>6. The attribute <i>IsReadytoPay</i> of the object <i>s</i> became <b>false</b></p><p>7. The object <i>s</i> was put into the instance set of class <a href="#CLASSSale">Sale</a></p><p>8. The object <a href="#ProcessOrderServiceCurrentSale">CurrentSale</a> became <i>s</i></p><p>9. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>makeNewOrder</b>:</p>
- 
+
 ```java
 Contract ProcessOrderService::makeNewOrder() : Boolean {
 		/*
@@ -1945,9 +1946,9 @@ Contract ProcessOrderService::makeNewOrder() : Boolean {
 	<td><p>1. <i>sli</i> represented the object of class <a href="#CLASSOrderLineItem">OrderLineItem</a></p><p>2. The object <i>sli</i> was created</p><p>3. The object <a href="#ProcessOrderServiceCurrentOrderLine">CurrentOrderLine</a> became <i>sli</i></p><p>4. The object <i>sli</i> was linked to the object <i>CurrentSale</i> by <i>OrderLineItemtoSale</i></p><p>5. The object <i>CurrentSale</i> was linked to the object <i>sli</i> by <i>SaletoOrderLineItem</i></p><p>6. The attribute <i>Quantity</i> of the object <i>sli</i> became <i>quantity</i></p><p>7. The object <i>sli</i> was linked to the object <i>item</i> by <i>OrderLineItemtoItem</i></p><p>8. The attribute <i>StockNumber</i> of the object <i>item</i> became its previous value minus <i>quantity</i></p><p>9. The attribute <i>Subamount</i> of the object <i>sli</i> became the attribute <i>Price</i> of the object <i>item</i> times <i>quantity</i></p><p>10. The object <i>sli</i> was put into the instance set of class <a href="#CLASSOrderLineItem">OrderLineItem</a></p><p>11. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>enterItem</b>:</p>
- 
+
 ```java
 Contract ProcessOrderService::enterItem(id : Integer, quantity : Integer) : Boolean {
 		/*
@@ -2037,9 +2038,9 @@ Contract ProcessOrderService::enterItem(id : Integer, quantity : Integer) : Bool
 	<td><p>1. The attribute <i>Amount</i> of the object <i>CurrentSale</i> became the sum of <i>sub</i></p><p>2. The attribute <i>IsReadytoPay</i> of the object <i>CurrentSale</i> became <b>true</b></p><p>3. The return value was the attribute <i>Amount</i> of the object <i>CurrentSale</i></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>endOrder</b>:</p>
- 
+
 ```java
 Contract ProcessOrderService::endOrder() : Real {
 		/*
@@ -2108,9 +2109,9 @@ Contract ProcessOrderService::endOrder() : Real {
 	<td><p>1. <i>cp</i> represented the object of class <a href="#CLASSCashPayment">CashPayment</a></p><p>2. The object <i>cp</i> was created</p><p>3. The attribute <i>AmountTendered</i> of the object <i>cp</i> became <i>amount</i></p><p>4. The object <i>cp</i> was linked to the object <i>CurrentSale</i> by <i>PaymenttoSale</i></p><p>5. The object <i>CurrentSale</i> was linked to the object <i>cp</i> by <i>SaletoPayment</i></p><p>6. The object <i>CurrentSale</i> was linked to the object <i>CurrentStore</i> by <i>SaletoStore</i></p><p>7. The object <i>CurrentStore</i> was linked to the object <i>CurrentSale</i> by <i>StoretoSale</i></p><p>8. The attribute <i>Balance</i> of the object <i>cp</i> became <i>amount</i> minus the attribute <i>Amount</i> of the object <i>CurrentSale</i></p><p>9. The object <i>cp</i> was put into the instance set of class <a href="#CLASSCashPayment">CashPayment</a></p><p>10. The attribute <i>IsAccept</i> of the object <i>CurrentSale</i> became <b>false</b></p><p>11. The attribute <i>Name</i> of the object <i>CurrentSale</i> became the attribute <i>Name</i> of the object <i>CurrentStore</i></p><p>12. The return value was <b>true</b></p></td>
 	</tr>
 </table>
- 
+
 <p>Contract of <b>makeCashPayment</b>:</p>
- 
+
 ```java
 Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		/*
@@ -2156,15 +2157,15 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 }
 ```
 
- 
+
 ## 3.2  Database requirements
 #### 3.2.1   Entity Analysis
 <b>Conceptual Class Diagram</b> 
- 
+
 ![Conceptual Class Diagram](Images/Conceptual_Class_Diagram.svg)
- 
+
 <b>E1 - Item</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2224,9 +2225,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		<td>Association: One-to-One</td>
 	</tr>
 	</table>
-	 
+
 <b>E2 - OrderLineItem</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2271,9 +2272,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		<td>Association: One-to-One</td>
 	</tr>
 	</table>
-	 
+
 <b>E3 - Sale</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2353,9 +2354,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		<td>Association: One-to-One</td>
 	</tr>
 	</table>
-	 
+
 <b>E4 - Payment</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2390,9 +2391,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		<td>Association: One-to-One</td>
 	</tr>
 	</table>
-	 
+
 <b>E5 - CashPayment</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2421,9 +2422,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 	<td>The Balance of CashPayment</td>
 					</tr>
 	</table>
-	 
+
 <b>E6 - CardPayment</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2457,9 +2458,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 	<td>The ExpireDate of CardPayment</td>
 					</tr>
 	</table>
-	 
+
 <b>E7 - Store</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2519,9 +2520,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		<td>Association: One-to-Many</td>
 	</tr>
 	</table>
-	 
+
 <b>E8 - ProductCatalog</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2561,9 +2562,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		<td>Association: One-to-Many</td>
 	</tr>
 	</table>
-	 
+
 <b>E9 - Cutomer</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2598,9 +2599,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 	<td>The Name of Cutomer</td>
 					</tr>
 	</table>
-	 
+
 <b>E10 - Dilivery</b>
- 
+
 <table>
 	<tr>
 		<td><b>Entity Name:</b></td>
@@ -2630,11 +2631,6 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 	<td>The Name of Dilivery</td>
 					</tr>
 	<tr>
-	    <td>Attribute3</td>
-	<td>String</td>
-	<td>The Attribute3 of Dilivery</td>
-					</tr>
-	<tr>
 	    <td><b>Relationship Name</b></td>
 	<td><b>Related Entity</b></td>
 	<td><b>Relationship Type</b></td>
@@ -2645,8 +2641,9 @@ Contract ProcessOrderService::makeCashPayment(amount : Real) : Boolean {
 		<td>Association: One-to-Many</td>
 	</tr>
 	</table>
-	 
- 
+
+​	 
+
 #### 3.2.2   Other database requirements
 This should specify the logical requirements for any information that is to be placed into a database. This may include the following:
 
@@ -2656,7 +2653,7 @@ This should specify the logical requirements for any information that is to be p
 - d) Integrity constraints;
 - e) Data retention requirements.			
 
- 
+
 ## 3.3  Performance requirements
 ### 3.3.1  Static numerical requirements
 This subsection should specify both the static and the dynamic numerical requirements placed on the software or on human interaction with the software as a whole. Static numerical requirements may include the following:
@@ -2695,7 +2692,7 @@ This should specify the use of other required software products (e.g., a data ma
 - c) Specification number;
 - d) Version number;
 - e) Source.
- 
+
 For each interface, the following should be provided:
 - a) Discussion of the purpose of the interfacing software as related to this software product.
 - b) Definition of the interface in terms of message content and format. It is not necessary to detail any well-documented interface, but a reference to the document defining the interface is required.
@@ -2712,6 +2709,7 @@ This subsection should specify the requirements derived from existing standards 
 - c) Accounting procedures;
 - d) Audit tracing.
 		
+
 For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement may, for example, state that all changes to a payroll database must be recorded in a trace file with before and after values.
 
 ## 3.7  Software system attributes

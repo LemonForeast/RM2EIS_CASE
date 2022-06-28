@@ -1,0 +1,11 @@
+com\example\demo\DemoApplication.class
+com\example\demo\service\RegisterService.class
+com\example\demo\model\Type.class
+com\example\demo\repository\MemberRepository.class
+com\example\demo\service\ParkMSSystem.class
+com\example\demo\repository\VehicleRepository.class
+com\example\demo\controller\ApiController.class
+com\example\demo\model\Member.class
+com\example\demo\model\Vehicle$VehicleBuilder.class
+com\example\demo\model\Member$MemberBuilder.class
+com\example\demo\model\Vehicle.class

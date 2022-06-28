@@ -1,0 +1,4 @@
+com\example\demo\repository\MemberRepositoryTest.class
+com\example\demo\service\RegisterServiceTest.class
+com\example\demo\repository\VehicleRepositoryTest.class
+com\example\demo\DemoApplicationTests.class
