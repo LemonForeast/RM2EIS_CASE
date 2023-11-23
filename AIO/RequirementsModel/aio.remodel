@@ -1,0 +1,1275 @@
+UseCaseModel AIO {
+
+	UC::corpList definedBySSD(CorpListSSD) relatedService(CorpListService)
+	UC::corpInsertSubmit
+	UC::corpUpdate
+	UC::corpDelete
+	UC::draftList definedBySSD(DraftListSSD) relatedService(DraftListService)
+	UC::draftInsert
+	UC::draftUpdate
+	UC::draftDelete
+	UC::productList
+	UC::corpSearch
+	UC::manageHR definedBySSD(ManageHRSSD) relatedService(ManageHRService)
+	UC::createMember
+	UC::findByKeyword
+	UC::updateMember
+	UC::resetPw
+	UC::searchHRNoKeyword
+	UC::loadUserByUsername
+	UC::loadAllEmpl
+	UC::saveEmpl
+	UC::decideAuth
+	UC::loadByEmplId
+	UC::updateEmpl
+	UC::checkPassword
+	UC::search
+	UC::updateGoWork
+	UC::userEmpl
+	UC::incomeStatement definedBySSD(IncomeStatementSSD) relatedService(IncomeStatementService)
+	UC::spendingResolutionRegisterSubmit definedBySSD(SpendingResolutionRegisterSubmitSSD) relatedService(SpendingResolutionRegisterSubmitService)
+	UC::downloadExcel
+	UC::incomeStatementExcel
+	UC::derivWaitList definedBySSD(DerivWaitListSSD) relatedService(DerivWaitListService)
+	UC::derivWaitInsert
+	UC::deirvConfirm
+	UC::requestList definedBySSD(RequestListSSD) relatedService(RequestListService)
+	UC::derivConfirmUpdate
+	UC::releaOkInsert
+	UC::ordersCRUD definedBySSD(OrdersCRUDSSD) relatedService(OrdersCRUDService)
+	UC::productCRUD definedBySSD(ProductCRUDSSD) relatedService(ProductCRUDService)
+	UC::purchaseSalesTradingRegisterForm definedBySSD(PurchaseSalesTradingRegisterFormSSD) relatedService(PurchaseSalesTradingRegisterFormService)
+	UC::purchaseSalesTradingRegisterSubmit
+	UC::outstandingAuthorizationList
+	UC::outstandingAuthorizationView
+	UC::updateOutstandingAuthorizationForm
+	UC::updateOutstandingAuthorizationSubmit
+	UC::deleteOutstandingAuthorization
+	UC::deleteStatementManagement
+	UC::outstandingSearchSlip
+	UC::slipSearchSlip
+	UC::paymentApprove
+	UC::paymentReject
+	UC::slipList
+	UC::viewStatementManagement
+
+	Actor Corp {
+		corpList
+		corpInsertSubmit
+		corpUpdate
+		corpDelete
+	}
+
+	Actor Draft {
+		draftList
+		draftInsert
+		draftUpdate
+		draftDelete
+		productList
+		corpSearch
+	}
+
+	Actor Employee {
+		manageHR
+		createMember
+		findByKeyword
+		updateMember
+		resetPw
+		searchHRNoKeyword
+		loadUserByUsername
+		loadAllEmpl
+		saveEmpl
+		decideAuth
+		loadByEmplId
+		updateEmpl
+		checkPassword
+		search
+		updateGoWork
+		userEmpl
+	}
+
+	Actor Excel {
+		incomeStatement
+		spendingResolutionRegisterSubmit
+		downloadExcel
+		incomeStatementExcel
+	}
+
+	Actor Deriv {
+		derivWaitList
+		derivWaitInsert
+		deirvConfirm
+	}
+
+	Actor Release {
+		requestList
+		derivConfirmUpdate
+		releaOkInsert
+	}
+
+	Actor Orders {
+		ordersCRUD
+	}
+
+	Actor Product {
+		productCRUD
+	}
+
+	Actor Slip {
+		purchaseSalesTradingRegisterForm
+		outstandingAuthorizationList
+		purchaseSalesTradingRegisterSubmit
+		updateOutstandingAuthorizationForm
+		outstandingAuthorizationView
+		deleteOutstandingAuthorization
+		updateOutstandingAuthorizationSubmit
+		outstandingSearchSlip
+		deleteStatementManagement
+		paymentApprove
+		viewStatementManagement
+		slipList
+		paymentReject
+		slipSearchSlip
+	}
+
+	Interaction IncomeStatementSSD {
+
+		[Participants: Excel IncomeStatementService]
+
+		CallMessage::IncomeStatementSSDCallMessage1(incomeStatement IncomeStatementSSDCallMessage1SendingEnd -> IncomeStatementSSDExecution1StartEnd)
+		ReturnMessage::IncomeStatementSSDCallMessage1Return(IncomeStatementSSDExecution1FinishEnd -> IncomeStatementSSDCallMessage1ReturnReceivingEnd IncomeStatementSSDCallMessage1)
+
+		Execution::IncomeStatementSSDExecution1(IncomeStatementService IncomeStatementSSDExecution1StartEnd IncomeStatementSSDExecution1FinishEnd)
+
+		MessageEnd::IncomeStatementSSDCallMessage1SendingEnd(Excel IncomeStatementSSDCallMessage1)
+		ExecutionEnd::IncomeStatementSSDExecution1StartEnd(IncomeStatementService IncomeStatementSSDExecution1)
+		ExecutionEnd::IncomeStatementSSDExecution1FinishEnd(IncomeStatementService IncomeStatementSSDExecution1)
+		MessageEnd::IncomeStatementSSDCallMessage1ReturnReceivingEnd(Excel IncomeStatementSSDCallMessage1Return)
+
+	}
+
+	Interaction SpendingResolutionRegisterSubmitSSD {
+
+		[Participants: Excel SpendingResolutionRegisterSubmitService]
+
+	}
+
+	Interaction CorpListSSD {
+
+		[Participants: Corp CorpListService]
+
+	}
+
+	Interaction DraftListSSD {
+
+		[Participants: Draft DraftListService]
+
+	}
+
+	Interaction ManageHRSSD {
+
+		[Participants: Employee ManageHRService]
+
+	}
+
+	Interaction DerivWaitListSSD {
+
+		[Participants: Deriv DerivWaitListService]
+
+	}
+
+	Interaction RequestListSSD {
+
+		[Participants: Release RequestListService]
+
+	}
+
+	Interaction OrdersCRUDSSD {
+
+		[Participants: Orders OrdersCRUDService]
+
+	}
+
+	Interaction ProductCRUDSSD {
+
+		[Participants: Product ProductCRUDService]
+
+	}
+
+	Interaction PurchaseSalesTradingRegisterFormSSD {
+
+		[Participants: Slip PurchaseSalesTradingRegisterFormService]
+
+	}
+
+	Service AIOSystem {
+
+		[TempProperty]
+		CurrentEmpl : Empl
+
+	}
+
+	Service ThirdPartyServices {
+
+		[Operation]
+		computeIncome(slip, months)
+		computeOutcome(slip, months)
+		computeProfit(income, outcome)
+		setComma(profit)
+		render(raw)
+		sendEmail(message)
+		findByKeyword(dept, keyword, pageable)
+		viewSlip(slipId)
+		findByDerivstateA(derivChk)
+		findByDerivstateD(derivOk)
+		saveReleaWait(confirmCntR, release, requestId)
+		updateReqState(requestId, state)
+		makeReqestTitleList(requestState)
+		countByEmplAndAttendanceAndCalWorkDateContains(empl, now)
+		addFlashAttribute(s, o)
+
+	}
+
+	Service IncomeStatementService {
+
+		[Operation]
+		incomeStatement(months)
+
+	}
+
+	Service SpendingResolutionRegisterSubmitService {
+
+	}
+
+	Service CorpListService {
+
+		[Operation]
+		corpList(corp)
+		corpInsertSubmit(empl, corp, errors, model)
+		corpUpdate(empl, corp, errors, model)
+		corpDelete(corp)
+
+	}
+
+	Service DraftListService {
+
+		[Operation]
+		draftList(model, order)
+		draftInsert(draft, errors, prod_id, model)
+		draftUpdate(draft, prod_id)
+		draftDelete(draft, draft)
+		productSearch(model, product)
+		corpSearch(model, corp)
+
+	}
+
+	Service ManageHRService {
+
+		[Operation]
+		manageHR(model, empl)
+		createMember(empl, emplForm, errors, model)
+		manageHR2(emplId)
+		updateMember(empl, emplForm, errors)
+		resetPw(empl, password, emplId)
+		searchHR(pageable, dept, keyword)
+		searchHRNoKeyword(pageable, dept, keyword)
+
+	}
+
+	Service DerivWaitListService {
+
+		[Operation]
+		derivWaitInsert(empl, model, derivative)
+		derivWaitList(empl, model)
+		derivConfirmUpdate(empl, model, confirmCntD, derivative)
+
+	}
+
+	Service RequestListService {
+
+		[Operation]
+		requestList(empl, model)
+		derivConfirmUpdate2(empl, model, confirmCntR, release)
+		releaOkInsert(empl, model, release)
+		reqList(requestid)
+		releaList(releaid)
+
+	}
+
+	Service OrdersCRUDService {
+
+		[Operation]
+		ordersList(model, orders)
+		ordersInsert(orders, errors, model, empl, corp_id, draftList)
+		ordersUpdate(orders, model)
+		ordersDelete(orders)
+
+	}
+
+	Service ProductCRUDService {
+
+		[Operation]
+		productList(model, product)
+		insertProductView(empl, product, model)
+		insertProduct(corp_id, empl, product, errors, model)
+		getProduct(product, model)
+		updateProduct(empl, product, model)
+		deleteProduct(product)
+		searchCorp(model, corp)
+
+	}
+
+	Service PurchaseSalesTradingRegisterFormService {
+
+		[Operation]
+		purchaseSalesTradingRegisterForm(empl, model, corp)
+		purchaseSalesTradingRegisterSubmit(empl, slip, errors, model, corp)
+		outstandingAuthorizationList(empl, pageable, model, keyword)
+		outstandingAuthorizationView(empl, slipId, model)
+		updateOutstandingAuthorizationForm(empl, corp, slipId, model)
+		updateOutstandingAuthorizationSubmit(empl, slipForm, errors, slipId, model, attributes)
+		deleteOutstandingAuthorization(empl, slipForm, model, errors, slipId, attributes)
+		deleteStatementManagement(empl, slipForm, model, errors, slipId, attributes)
+		outstandingSearchSlip(empl, pageble, keyword, model)
+		slipSearchSlip(empl, pageable, keyword, model)
+		paymentApprove(empl, slipId, model, keyword)
+		paymentReject(empl, slipId, model, keyword)
+		slipList(empl, pageble, model, keyword, months)
+		viewStatementManagement(empl, slipId, model)
+
+	}
+
+	Contract IncomeStatementService::incomeStatement(months : String) : Boolean {
+
+		definition:
+			slip:Set(Slip) = Slip.allInstance()->select(s:Slip | Today.isBefore(s.SlipDate) and months.isAfter(s.SlipDate))
+
+		precondition:
+			true
+		postcondition:
+			let profit:String, table:String in
+			income = computeIncome(slip, tday, months) and
+			outcome = computeOutcome(slip, tday, months) and
+			profit = computeProfit(income, outcome) and
+			table = setComma(profit) and
+			result = render(table)
+	}
+
+	Contract ThirdPartyServices::computeIncome(slip : Slip, months : String) : String {
+
+		precondition:
+			true
+		postcondition:
+			result = "Todo"
+	}
+
+	Contract ThirdPartyServices::computeProfit(income : String, outcome : String) : String {
+
+		precondition:
+			true
+		postcondition:
+			result = "Todo"
+	}
+
+	Contract ThirdPartyServices::computeOutcome(slip : String, months : String) : String {
+
+		precondition:
+			true
+		postcondition:
+			result = "Todo"
+	}
+
+	Contract ThirdPartyServices::setComma(profit : String) : String {
+
+		precondition:
+			true
+		postcondition:
+			result = "Todo"
+	}
+
+	Contract ThirdPartyServices::render(raw : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract CorpListService::corpList(corp : String) : Set(Corp) {
+
+		precondition:
+			true
+		postcondition:
+			result = Corp.allInstance()
+	}
+
+	Contract CorpListService::corpInsertSubmit(empl : Empl, corp : Corp, errors : String, model : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			model = model + corp.CorpName and
+			model = model + corp.Corp_adderss and
+			model = model + corp.Corp_call and
+			model = model + corp.Corp_ceo and
+			model = model + corp.Corp_num and
+			corp.Empl = empl and
+			Corp.allInstance()->includes(corp) and
+			result = true
+	}
+
+	Contract CorpListService::corpUpdate(empl : Empl, corp : Corp, errors : String, model : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			model = model + corp.CorpName and
+			model = model + corp.Corp_adderss and
+			model = model + corp.Corp_call and
+			model = model + corp.Corp_ceo and
+			model = model + corp.Corp_num and
+			model = model + errors and
+			corp.Empl = empl and
+			result = true
+	}
+
+	Contract CorpListService::corpDelete(corp : Corp) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			Corp.allInstance()->excludes(corp) and
+			result = true
+	}
+
+	Contract DraftListService::draftList(model : String, order : Order) : Draft {
+
+		precondition:
+			true
+		postcondition:
+			result = Draft.allInstance()->select(d:Draft | d.Orders = order)
+	}
+
+	Contract DraftListService::draftInsert(draft : Draft, errors : String, prod_id : String, model : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			Corp.allInstance()->includes(corp) and
+			result = true
+	}
+
+	Contract DraftListService::draftUpdate(draft : Draft, prod_id : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			let dr:Draft in
+			dr = Draft.allInstance()->select(d:Draft | d.Draft_seq = draft.Draft_seq) and
+			pr = Product.allInstance()->select(p:Product | p.Prod_id = prod_id) and
+			dr.Draft_cnt = draft.Draft_cnt and
+			dr.Draft_prod_price = draft.Draft_prod_price and
+			dr.Product = pr and
+			result = true
+	}
+
+	Contract DraftListService::draftDelete(draft : String, draft : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			dr = Draft.allInstance()->select(d:Draft | d.Draft_seq = draft.Draft_seq) and
+			Draft.allInstance()->excludes(dr) and
+			result = true
+	}
+
+	Contract DraftListService::productSearch(model : String, product : String) : Set(Product) {
+
+		precondition:
+			true
+		postcondition:
+			result = Product.allInstance()
+	}
+
+	Contract DraftListService::corpSearch(model : String, corp : Corp) : Corp {
+
+		precondition:
+			true
+		postcondition:
+			result = Corp.allInstance()->select(c:Corp | c.Corp_name = corp.Corp_name)
+	}
+
+	Contract ThirdPartyServices::sendEmail(message : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ManageHRService::manageHR(model : String, empl : Empl) : String {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				model = model + CurrentEmpl.Name and
+				model = model + CurrentEmpl.Jumin and
+				model = model + CurrentEmpl.Address and
+				model = model + CurrentEmpl.Phone and
+				result = model
+			endif
+	}
+
+	Contract ManageHRService::createMember(empl : Empl, emplForm : String, errors : String, model : String) : String {
+
+		precondition:
+			true
+		postcondition:
+			model = model + emplForm and
+			result = model + manageHR(model, empl)
+	}
+
+	Contract ThirdPartyServices::findByKeyword(dept : String, keyword : String, pageable : String) : String {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ManageHRService::manageHR2(emplId : String) : Empl {
+
+		precondition:
+			true
+		postcondition:
+			result = Empl.allInstance()->select(e:Empl | e.EmplId = emplId)
+	}
+
+	Contract ManageHRService::updateMember(empl : Empl, emplForm : EmplForm, errors : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				empl.EmplId = emplForm.EmplId and
+				empl.Name = emplForm.Name and
+				empl.Jumin = emplForm.Jumin and
+				empl.Address = emplForm.Address and
+				empl.Post_num = emplForm.Post_num and
+				empl.Phone = emplForm.Phone and
+				empl.Dept = emplForm.Dept and
+				empl.Password = emplForm.Password and
+				empl.Photo = emplForm.Photo and
+				empl.Email = emplForm.Email and
+				empl.Work_state = emplForm.Work_state and
+				empl.EmplRegdate = emplForm.EmplRegdate and
+				empl.EmplResigdate = emplForm.EmplResigdate
+			endif
+	}
+
+	Contract ManageHRService::resetPw(empl : Empl, password : String, emplId : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				em = Empl.allInstance()->select(e:Empl | e.EmplId = emplId) and
+				em.Password = emplForm.Password and
+				sendEmail(password)
+			endif
+	}
+
+	Contract ManageHRService::searchHR(pageable : String, dept : String, keyword : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			result = Empl.allInstance()->select(e:Empl | e.Name = keyword)
+	}
+
+	Contract ManageHRService::searchHRNoKeyword(pageable : String, dept : String, keyword : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			result = Empl.allInstance()->select(e:Empl | e.Name = keyword)
+	}
+
+	Contract DerivWaitListService::derivWaitInsert(empl : Empl, model : String, derivative : Derivative) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				Derivative.allInstance()->includes(derivative)
+			endif
+	}
+
+	Contract DerivWaitListService::derivWaitList(empl : Empl, model : String) : Set(Derivative) {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				result = Derivative.allInstance()
+			endif
+	}
+
+	Contract DerivWaitListService::derivConfirmUpdate(empl : Empl, model : String, confirmCntD : String, derivative : Derivative) : Boolean {
+
+		precondition:
+			true
+
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				derivative.Emplid = empl
+			endif
+	}
+
+	Contract RequestListService::requestList(empl : Empl, model : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				result = Release.allInstance()
+			endif
+	}
+
+	Contract RequestListService::derivConfirmUpdate2(empl : Empl, model : String, confirmCntR : String, release : Release) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				empl.Release = release
+			endif
+	}
+
+	Contract RequestListService::releaOkInsert(empl : Empl, model : String, release : Release) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			Release.allInstance()->includes(release)
+	}
+
+	Contract RequestListService::reqList(requestid : String) : Requestdummy {
+
+		definition:
+			req:Requestdummy = Requestdummy.allInstance()->any(u:Requestdummy | u.Requestid = requestid)
+
+		precondition:
+			req.oclIsUndefined() = false
+
+		postcondition:
+			result = req
+	}
+
+	Contract RequestListService::releaList(releaid : String) : Release {
+
+		definition:
+			req:Release = Release.allInstance()->any(u:Release | u.Releaid = releaid)
+
+		precondition:
+			req.oclIsUndefined() = false
+
+		postcondition:
+			result = req
+	}
+
+	Contract OrdersCRUDService::ordersList(model : String, orders : String) : Set(Order) {
+
+		precondition:
+			true
+		postcondition:
+			result = Order.allInstance()
+	}
+
+	Contract OrdersCRUDService::ordersInsert(orders : Order, errors : String, model : String, empl : Empl, corp_id : String, draftList : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				orders.Empl = empl
+			endif
+	}
+
+	Contract OrdersCRUDService::ordersUpdate(orders : Order, model : String) : Boolean {
+
+		definition:
+			order:Order = Order.allInstance()->any(o:Order | o.Orderid=orders.Orderid)
+
+		precondition:
+			order.oclIsUndefined() = false
+		postcondition:
+			order.Orders_cnt = orders.Orders_cnt and
+			order.Orders_regdate = orders.Orders_regdate and
+			order.Ordersstate = orders.Ordersstate and
+			order.Orders_tosum = orders.Orders_tosum and
+			Order.allInstance()->includes(order)
+	}
+
+	Contract OrdersCRUDService::ordersDelete(orders : String) : Boolean {
+
+		definition:
+			order:Order = Order.allInstance()->any(o:Order | o.Orderid=orders.Orderid)
+
+		precondition:
+			true
+		postcondition:
+			Order.allInstance()->excludes(order)
+	}
+
+	Contract ProductCRUDService::productList(model : String, product : String) : Set(Product) {
+
+		precondition:
+			true
+		postcondition:
+			result = Order.allInstance()
+	}
+
+	Contract ProductCRUDService::insertProductView(empl : String, product : String, model : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ProductCRUDService::insertProduct(corp_id : String, empl : Empl, product : Product, errors : String, model : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				product.Empl = empl
+			endif
+	}
+
+	Contract ProductCRUDService::getProduct(product : Product, model : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ProductCRUDService::updateProduct(empl : Empl, product : Product, model : String) : Boolean {
+
+		definition:
+			pro:Product = Product.allInstance()->any(p:Product | p.Prod_id=product.Prod_id)
+
+		precondition:
+			pro.oclIsUndefined() = true
+		postcondition:
+			if
+				empl.oclIsUndefined() = false
+			then
+				CurrentEmpl = empl
+			else
+				Product.allInstance()->includes(pro)
+			endif
+	}
+
+	Contract ProductCRUDService::deleteProduct(product : Product) : Boolean {
+
+		definition:
+			pro:Product = Product.allInstance()->any(o:Product | o.Prod_id=product.Prod_id)
+
+		precondition:
+			true
+		postcondition:
+			Product.allInstance()->excludes(pro)
+	}
+
+	Contract ProductCRUDService::searchCorp(model : String, corp : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			result = Corp.allInstance()->any(o:Corp | o.CorpName=corp)
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::purchaseSalesTradingRegisterForm(empl : String, model : String, corp : String) : Set(Corp) {
+
+		precondition:
+			true
+		postcondition:
+			result = Corp.allInstance()
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::purchaseSalesTradingRegisterSubmit(empl : String, slip : Slip, errors : String, model : String, corp : String) : Set(Corp) {
+
+		precondition:
+			true
+		postcondition:
+			Slip.allInstance()->includes(slip) and
+			result = Corp.allInstance()
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::outstandingAuthorizationList(empl : String, pageable : String, model : String, keyword : String) : Set(Slip) {
+
+		precondition:
+			true
+		postcondition:
+			result = Slip.allInstance()
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::outstandingAuthorizationView(empl : String, slipId : String, model : String) : Slip {
+
+		precondition:
+			true
+		postcondition:
+			result = Slip.allInstance()->any(s:Slip | s.SlipId = slipId)
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::updateOutstandingAuthorizationForm(empl : String, corp : String, slipId : String, model : String) : Slip {
+
+		precondition:
+			true
+		postcondition:
+			result = Slip.allInstance()->any(s:Slip | s.SlipId = slipId)
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::updateOutstandingAuthorizationSubmit(empl : String, slipForm : SlipForm, errors : String, slipId : String, model : String, attributes : String) : Boolean {
+
+		definition:
+			sf:Slip = Slip.allInstance()->any(u:Slip | u.SlipId = slipId)
+
+		precondition:
+			sf.oclIsUndefined() = false
+		postcondition:
+			sf.SlipDate = slipForm.SlipDate and
+			sf.Tradingtype = slipForm.Tradingtype and
+			sf.SlipWrite = slipForm.SlipWrite and
+			sf.SlipCode = slipForm.SlipCode and
+			sf.Corp = slipForm.Corp and
+			sf.PayStatementType = slipForm.PayStatementType
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::deleteOutstandingAuthorization(empl : String, slipForm : String, model : String, errors : String, slipId : String, attributes : String) : Boolean {
+
+		definition:
+			sf:Slip = Slip.allInstance()->any(u:Slip | u.SlipId = slipId)
+
+		precondition:
+			sf.oclIsUndefined() = false
+		postcondition:
+			Slip.allInstance()->excludes(sf)
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::deleteStatementManagement(empl : String, slipForm : String, model : String, errors : String, slipId : String, attributes : String) : Boolean {
+
+		definition:
+			sf:Slip = Slip.allInstance()->any(u:Slip | u.SlipId = slipId)
+
+		precondition:
+			sf.oclIsUndefined() = false
+		postcondition:
+			Slip.allInstance()->excludes(sf)
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::outstandingSearchSlip(empl : String, pageble : String, keyword : String, model : String) : Set(Slip) {
+
+		precondition:
+			true
+		postcondition:
+			result = Slip.allInstance()
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::slipSearchSlip(empl : String, pageable : String, keyword : String, model : String) : Slip {
+
+		definition:
+			sf:Slip = Slip.allInstance()->any(u:Slip | u.Corp = keyword)
+
+		precondition:
+			sf.oclIsUndefined() = false
+		postcondition:
+			result = sf
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::paymentApprove(empl : String, slipId : String, model : String, keyword : String) : Boolean {
+
+		definition:
+			sf:Slip = Slip.allInstance()->any(u:Slip | u.Corp = keyword)
+
+		precondition:
+			sf.oclIsUndefined() = false
+		postcondition:
+			true
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::paymentReject(empl : String, slipId : String, model : String, keyword : String) : Boolean {
+
+		definition:
+			sf:Slip = Slip.allInstance()->any(u:Slip | u.Corp = keyword)
+
+		precondition:
+			sf.oclIsUndefined() = false
+		postcondition:
+			Slip.allInstance()->excludes(sf)
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::slipList(empl : String, pageble : String, model : String, keyword : String, months : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			result = Slip.allInstance()
+	}
+
+	Contract PurchaseSalesTradingRegisterFormService::viewStatementManagement(empl : String, slipId : String, model : String) : Boolean {
+
+		definition:
+			sf:Slip = Slip.allInstance()->any(u:Slip | u.Corp = keyword)
+
+		precondition:
+			sf.oclIsUndefined() = false
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::viewSlip(slipId : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::findByDerivstateA(derivChk : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::findByDerivstateD(derivOk : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::saveReleaWait(confirmCntR : String, release : String, requestId : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::updateReqState(requestId : String, state : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::makeReqestTitleList(requestState : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::countByEmplAndAttendanceAndCalWorkDateContains(empl : String, now : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract ThirdPartyServices::addFlashAttribute(s : String, o : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+}
+
+DomainModel AIO {
+
+	Entity Corp {
+		CorpName : String
+		Corp_address : String
+		Corp_call : String
+		Corp_ceo : String
+		Corp_num : String
+
+		[Refer]
+		Empl : Empl Association
+		Products : Product* Association
+		Orders : Order* Association
+	}
+
+	Entity Empl {
+		EmplId : String
+		Name : String
+		Jumin : String
+		Address : String
+		Post_num : String
+		Phone : String
+		Dept : String
+		Password : String
+		Photo : String
+		Email : String
+		Work_state : String
+		EmplRegdate : String
+		EmplResigdate : String
+		Attendance : String
+		GoWork : Boolean
+		GoHome : Boolean
+
+		[Refer]
+		MyCalendar : MyCalendar* Association
+		EmpltoCorp : Corp* ! Association
+		Release : Release ! Association
+	}
+
+	Entity MyCalendar {
+		Id : Integer
+		CalWorkDate : String
+		Attendance : String
+
+		[Refer]
+		Empl : Empl ! Association
+	}
+
+	Entity Product {
+		Prod_id : Integer
+		ProdName : String
+		Prod_bundle : String
+		Sell_price : String
+		Buy_price : String
+		Prod_catag : String
+		Prod_explain : String
+		Prod_image : String
+
+		[Refer]
+		Corp : Corp ! Association
+		Draftseq : Draft ! Association
+		Empl : Empl Association
+	}
+
+	Entity Order {
+		Ordersid : Integer
+		Orders_cnt : Integer
+		Orders_regdate : String
+		Ordersstate : String
+		Orders_totsum : Integer
+
+		[Refer]
+		Corp : Corp ! Association
+		Empl : Empl Association
+		Draft : Draft* ! Association
+	}
+
+	Entity Derivative {
+		Derivid : Integer
+		Derivregdate : String
+		Derivtitle : String
+		Derivstate : String
+		Derivokconfirmtotcnt : Integer
+		Derivokconfirmdate : String
+
+		[Refer]
+		Emplid : Empl Association
+		Ordersid : Order Association
+		Derivlistid : Derivativelist* Association
+	}
+
+	Entity Derivativelist {
+		DerivListid : Integer
+		Derivokconfirmcnt : Integer
+
+		[Refer]
+		Derivativeid : Derivative ! Association
+	}
+
+	Entity Release {
+		Releaid : Integer
+		Relearegdate : String
+		Releastate : String
+		Releatitle : String
+		ReleaOktotcnt : Integer
+		Releaokconfirmdate : String
+
+		[Refer]
+		Emplid : Empl* Association
+		Requestid : Requestdummy Association
+		Releaselists : Releaselist* Association
+	}
+
+	Entity Requestdummy {
+		Requestid : Integer
+		Requesttotcnt : Integer
+		Requestregdate : String
+		Requeststate : String
+		Storename : String
+
+		[Refer]
+		Releaseid : Release ! Association
+		DummyLists : Requestdummylist* ! Association
+	}
+
+	Entity Releaselist {
+		Relealistid : Integer
+		Releaokconfirmcnt : Integer
+
+		[Refer]
+		Releaseid : Release ! Association
+	}
+
+	Entity Requestdummylist {
+		Reqdummylistid : Integer
+		Requestcnt : Integer
+
+		[Refer]
+		Prodid : Product Association
+		Reqdummyid : Requestdummy Association
+	}
+
+	Entity Slip {
+		SlipId : Integer
+		SlipDate : String
+		TradingType : String
+		SlipWrite : String
+		SlipCode : String
+		Corp : String
+		Slip_account : String
+		Slip_vat : String
+		Slip_summary : String
+		PaymentType : String
+		PayStatementntType : String
+	}
+
+	Entity Draft {
+		Draft_seq : Integer
+		Draft_cnt : String
+		Draft_prod_price : String
+
+		[Refer]
+		Product : Product Association
+		Orders : Order Association
+	}
+
+	Entity DraftList {
+		[Refer]
+		Drafts : Draft* Association
+	}
+
+	Entity EmailMessage {
+		From : String
+		To : String
+		Subject : String
+		Message : String
+	}
+
+	Entity EmplForm {
+		EmplId : String
+		Name : String
+		Jumin : String
+		Address : String
+		Post_num : String
+		Phone : String
+		Dept : String
+		Password : String
+		Photo : String
+		Email : String
+		Work_state : String
+		EmplRegdate : String
+		EmplResigdate : String
+	}
+
+	Entity EmplUpdateForm {
+		EmplId : String
+		Name : String
+		Jumin : String
+		Address : String
+		Post_num : String
+		Phone : String
+		Dept : String
+		Photo : String
+		Email : String
+		Work_state : String
+		EmplRegdate : String
+		EmplResigdate : String
+	}
+
+	Entity ConfirmCntD {
+		[Refer]
+		ConfirmCntD : Derivativelist* Association
+	}
+
+	Entity ConfirmCntR {
+		[Refer]
+		ConfirmCntR : Derivativelist* Association
+	}
+
+	Entity SlipForm {
+		SlipId : Integer
+		TradingType : String
+		SlipWrite : String
+		SlipDate : String
+		SlipCode : String
+		Corp : String
+		Slip_account : String
+		Slip_vat : String
+		Slip_summary : String
+		PaymentType : String
+		PayStatementntType : String
+	}
+
+}
+
